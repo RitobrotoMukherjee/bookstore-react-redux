@@ -1,56 +1,43 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+# Book Store App 
 
-# Project Name
-
-> Description the project.
+> A web app developed using `React`. It's a simple list application, for **books**. This template can be used for any listing application. It also has a small router for **categories** pages. Other than **Books**, all pages are static components.
 
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- HTML5
+- CSS3
+- React JS
+- Redux
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://livedemo.com)
+[Live Demo Link](#)
 
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+- **`git clone https://github.com/RitobrotoMukherjee/bookstore-react-redux.git`**
+- **`cd bookstore-react-redux`**
+- **`npm run install`**
+- **`npm run start`**
 
+## Testing
 
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-### Setup
-
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
-
+- **`npm run test`**
 
 ## Authors
 
-👤 **Author1**
+👤 **Ritobroto Mukherjee**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- Portfolio: [@Rito](https://ritobrotomukherjee.github.io/Work-Portfolio/)
+- GitHub: [@RitobrotoMukherjee](https://github.com/RitobrotoMukherjee)
+- Twitter: [@RitobrotoM3](https://twitter.com/RitobrotoM3)
+- LinkedIn: [Ritobroto Mukherjee](https://www.linkedin.com/in/ritobroto-mukherjee-519148ba/)
 
-👤 **Author2**
+## Screenshots
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+![BookList](./screenshots/secondCalc.PNG)
 
 ## 🤝 Contributing
 
@@ -64,10 +51,11 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Microverse
+- React
 
 ## 📝 License
 
 This project is [MIT](./MIT.md) licensed.
+
+## Code Reviewers
