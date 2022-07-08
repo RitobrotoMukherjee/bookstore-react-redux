@@ -37,7 +37,7 @@
 
 ## Screenshots
 
-![BookList](./screenshots/secondCalc.PNG)
+![BookList](./screenshot/screenshot.PNG)
 
 ## 🤝 Contributing
 

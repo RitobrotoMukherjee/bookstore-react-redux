@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Book from './Book';
+import AddBook from './AddBook';
 
 const DATA = [
   {
@@ -42,6 +43,7 @@ const BookList = () => {
           />
         ))}
       </ul>
+      <AddBook />
     </div>
   );
 };
