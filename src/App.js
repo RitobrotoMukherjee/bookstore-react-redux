@@ -8,6 +8,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
+        <Route index element={<BookList />} />
         <Route path="books" element={<BookList />} />
         <Route path="categories" element={<Categories />} />
       </Route>
