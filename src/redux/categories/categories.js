@@ -1,5 +1,5 @@
 const INITIAL_STATE = [];
-const UNDER_CONSTRUCTION = 'UNDERCONS';
+const UNDER_CONSTRUCTION = 'bookstore/categories/UNDER_CONSTRUCTION';
 
 const categoryReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
