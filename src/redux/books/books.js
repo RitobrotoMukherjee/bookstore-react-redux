@@ -1,27 +1,9 @@
+import INITIAL_BOOKS from './initialData';
+
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
-const INITIAL_STATE = [
-  {
-    title: 'The Hunger Games',
-    author: 'Suzanne Collins',
-    category: 'Action',
-    chapter: 'Chapter 17',
-  },
-  {
-    title: 'Dune',
-    author: 'Frank Herbert',
-    category: 'Science Fiction',
-    chapter: 'Chapter 3: "A Lesson Learned"',
-  },
-  {
-    title: 'Capital in the Twenty-First Century',
-    author: 'Suzanne Collins',
-    category: 'Economy',
-    chapter: 'Introduction',
-  },
-];
 
-const bookReducer = (state = INITIAL_STATE, action) => {
+const bookReducer = (state = INITIAL_BOOKS, action) => {
   const { type, book } = action;
   switch (type) {
     case ADD_BOOK: return [...state, book];
