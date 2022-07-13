@@ -1,41 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import RandomId from '../helpers/Random';
 import Book from './Book';
 import AddBook from './AddBook';
 
-const DATA = [
-  {
-    title: 'The Hunger Games',
-    author: 'Suzanne Collins',
-    category: 'Action',
-    chapter: 'Chapter 17',
-  },
-  {
-    title: 'Dune',
-    author: 'Frank Herbert',
-    category: 'Science Fiction',
-    chapter: 'Chapter 3: "A Lesson Learned"',
-  },
-  {
-    title: 'Capital in the Twenty-First Century',
-    author: 'Suzanne Collins',
-    category: 'Economy',
-    chapter: 'Introduction',
-  },
-];
-
 const BookList = () => {
-  const [books, setData] = useState([]);
-
-  useEffect(() => {
-    setData(DATA);
-  }, [books]);
+  const books = useSelector((state) => state.books);
 
   return (
     <div>
       <ul className="BookList">
-        {books.map((book, i) => (
+        {books.map((book) => (
           <Book
-            key={`${book}-${i - 1}`}
+            key={RandomId()}
             title={book.title}
             author={book.author}
             category={book.category}
