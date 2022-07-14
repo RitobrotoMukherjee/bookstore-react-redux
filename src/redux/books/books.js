@@ -1,25 +1,42 @@
-import INITIAL_BOOKS from './initialData';
+/* eslint-disable */
+import { createAsyncThunk, createSlice, current } from '@reduxjs/toolkit';
+import INITIAL_STATE from './initialData';
 
-const ADD_BOOK = 'bookstore/books/ADD_BOOK';
-const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
+import fetchBookURL from '../../API/BookAPI';
 
-const bookReducer = (state = INITIAL_BOOKS, action) => {
-  const { type, book } = action;
-  switch (type) {
-    case ADD_BOOK: return [...state, book];
-    case REMOVE_BOOK: return state.filter((b) => b.id !== book.id);
-    default: return state;
-  }
-};
-
-export const addBook = (book) => ({
-  type: ADD_BOOK,
-  book,
+export const getAllBooksThunk = createAsyncThunk('books/getBooks', async () => {
+  const res = await fetch(fetchBookURL);
+  return res.json();
 });
 
-export const removeBook = (book) => ({
-  type: REMOVE_BOOK,
-  book,
+const booksSlice = createSlice({
+  name: 'books',
+  initialState: INITIAL_STATE,
+  reducers: {
+    addBook: (state, action) => {
+      state.books.push(action.payload);
+    },
+    removeBook: (state, action) => {
+      const afterDeleteBooks = current(state).books.filter(({ item_id }) => item_id !== action.payload);
+      state.books = afterDeleteBooks;
+    },
+  },
+  extraReducers: {
+    [getAllBooksThunk.fulfilled]: (state, action) => {
+      const books = Object.keys(action.payload).map((key) => ({
+        ...action.payload[key][0],
+        item_id: key,
+        chapter: "Chapter 3",
+      }));
+
+      state.loading = false;
+      state.books = books;
+    },
+    [getAllBooksThunk.pending]: (state) => { state.loading = true; },
+    [getAllBooksThunk.rejected]: (state) => { state.loading = false; },
+  },
 });
 
-export default bookReducer;
+export const { addBook, removeBook } = booksSlice.actions;
+
+export default booksSlice.reducer;

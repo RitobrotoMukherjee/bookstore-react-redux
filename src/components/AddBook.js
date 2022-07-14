@@ -1,3 +1,4 @@
+/* eslint-disable */
 import '../css/AddBook.css';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -5,12 +6,14 @@ import { addBook } from '../redux/books/books';
 import RandomId from '../helpers/Random';
 
 const basicBookObj = {
+  title: '',
+  author: '',
   category: 'Science Fiction',
   chapter: 'Chapter 3: "A Lesson Learned"',
 };
 
 const AddBook = () => {
-  const [inputs, setInputs] = useState({ title: '', author: '' });
+  const [inputs, setInputs] = useState(basicBookObj);
   const dispatch = useDispatch();
 
   const handleInputChange = ({ target }) => {
@@ -20,17 +23,17 @@ const AddBook = () => {
 
   const addBookHandle = (e) => {
     e.preventDefault();
+    const item_id = RandomId();
 
     const { title, author } = inputs;
-    const id = RandomId();
-
+    
     if (title !== '' && author !== '') {
       dispatch(addBook({
-        id, ...basicBookObj, title, author,
+        item_id, ...basicBookObj,
       }));
     }
 
-    setInputs({ title: '', author: '' });
+    setInputs(basicBookObj);
   };
 
   return (
