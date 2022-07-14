@@ -23,6 +23,18 @@ const BookList = () => {
     );
   }
 
+  if (books.length === 0) {
+    return (
+      <>
+        <div className="BookList">
+          <h1>No Books Found</h1>
+          <h3>Please add a book.</h3>
+        </div>
+        <AddBook />
+      </>
+    );
+  }
+
   return (
     <div>
       <ul className="BookList">

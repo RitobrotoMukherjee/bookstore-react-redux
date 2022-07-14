@@ -34,10 +34,12 @@ const booksSlice = createSlice({
     addBook: (state, action) => {
       const newBooksArr = [ ...current(state).books, action.payload ];
       state.books = newBooksArr;
+      state.loading = false;
     },
     removeBook: (state, action) => {
       const afterDeleteBooks = current(state).books.filter(({ item_id }) => item_id !== action.payload);
       state.books = afterDeleteBooks;
+      state.loading = false;
     },
   },
   extraReducers: {
@@ -52,7 +54,9 @@ const booksSlice = createSlice({
       state.books = books;
     },
     [getAllBooksThunk.pending]: (state) => { state.loading = true; },
-    [getAllBooksThunk.rejected]: (state) => { state.loading = false; }
+    [getAllBooksThunk.rejected]: (state) => { state.loading = false; },
+    [addBookThunk.pending]: (state) => { state.loading = true; },
+    [removeBookThunk.pending]: (state) => { state.loading = true; },
   },
 });
 
