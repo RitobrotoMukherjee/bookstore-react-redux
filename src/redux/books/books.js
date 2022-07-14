@@ -9,12 +9,31 @@ export const getAllBooksThunk = createAsyncThunk('books/getBooks', async () => {
   return res.json();
 });
 
+export const addBookThunk = createAsyncThunk('books/addBook', async (book) => {
+  const res = await fetch(fetchBookURL, {
+    method: 'POST',
+    body: JSON.stringify(book),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  return res.json();
+});
+
+export const removeBookThunk = createAsyncThunk('books/removeBook', async (bookId) => {
+  const res = await fetch(`${fetchBookURL}/${bookId}`,{
+    method: 'DELETE',
+  });
+  return res.json();
+});
+
 const booksSlice = createSlice({
   name: 'books',
   initialState: INITIAL_STATE,
   reducers: {
     addBook: (state, action) => {
-      state.books.push(action.payload);
+      const newBooksArr = [ ...current(state).books, action.payload ];
+      state.books = newBooksArr;
     },
     removeBook: (state, action) => {
       const afterDeleteBooks = current(state).books.filter(({ item_id }) => item_id !== action.payload);
@@ -33,7 +52,7 @@ const booksSlice = createSlice({
       state.books = books;
     },
     [getAllBooksThunk.pending]: (state) => { state.loading = true; },
-    [getAllBooksThunk.rejected]: (state) => { state.loading = false; },
+    [getAllBooksThunk.rejected]: (state) => { state.loading = false; }
   },
 });
 

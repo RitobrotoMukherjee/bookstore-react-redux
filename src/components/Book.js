@@ -2,7 +2,7 @@ import '../css/Book.css';
 import PropTypes from 'prop-types';
 
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/books';
+import { removeBookThunk, removeBook } from '../redux/books/books';
 
 const Book = (props) => {
   const {
@@ -10,6 +10,10 @@ const Book = (props) => {
   } = props;
 
   const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    dispatch(removeBookThunk(id)).then(() => dispatch(removeBook(id)));
+  };
 
   return (
     <li>
@@ -25,7 +29,7 @@ const Book = (props) => {
               <button
                 type="button"
                 className="Book-action-button Roboto-slab"
-                onClick={() => dispatch(removeBook({ id }))}
+                onClick={handleDelete}
               >
                 Remove
               </button>

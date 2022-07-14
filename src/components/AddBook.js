@@ -2,7 +2,7 @@
 import '../css/AddBook.css';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/books';
+import { addBookThunk, addBook } from '../redux/books/books';
 import RandomId from '../helpers/Random';
 
 const basicBookObj = {
@@ -26,11 +26,12 @@ const AddBook = () => {
     const item_id = RandomId();
 
     const { title, author } = inputs;
-    
+
     if (title !== '' && author !== '') {
-      dispatch(addBook({
-        item_id, ...basicBookObj,
-      }));
+      const addedBook = {
+        item_id, ...inputs
+      };
+      dispatch(addBookThunk(addedBook)).then(() => dispatch(addBook(addedBook)));
     }
 
     setInputs(basicBookObj);
