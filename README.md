@@ -63,3 +63,4 @@ This project is [MIT](./MIT.md) licensed.
 - Kenechukwu Oguagbaka[@github](https://github.com/keneogu)
 - zieeco [@github](https://github.com/zieeco)
 - Mihndim Julius [@github](https://github.com/Mihndim2020)
+- Adedamola Shittu [@gitHub](https://github.com/DammyShittu)
