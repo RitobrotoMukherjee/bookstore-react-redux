@@ -12,7 +12,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://62d050adc7a69a00b51b384e--jade-biscuit-72d8cc.netlify.app/)
+[Live Demo Link](https://development--jade-biscuit-72d8cc.netlify.app/)
 
 
 ## Getting Started
@@ -63,3 +63,4 @@ This project is [MIT](./MIT.md) licensed.
 - Kenechukwu Oguagbaka[@github](https://github.com/keneogu)
 - zieeco [@github](https://github.com/zieeco)
 - Mihndim Julius [@github](https://github.com/Mihndim2020)
+- Adedamola Shittu [@gitHub](https://github.com/DammyShittu)
