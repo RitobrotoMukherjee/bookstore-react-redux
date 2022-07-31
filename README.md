@@ -12,7 +12,7 @@
 
 ## Live Demo (if available)
 
-[Live Demo Link](https://development--jade-biscuit-72d8cc.netlify.app/)
+[Live Demo Link](https://book-store-cms-react.netlify.app)
 
 
 ## Getting Started
